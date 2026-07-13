@@ -27,8 +27,8 @@ pipeline {
         stage('Deploy Frontend') {
             steps {
                 echo 'Starting local web server for the frontend...'
-                // This changes directory to your webapp folder and starts a background Python server on port 8000
-                bat 'cd src/main/webapp && start /B python -m http.server 8000'
+                // This opens a separate command window completely detached from Jenkins
+                bat 'start cmd /c "cd src/main/webapp && python -m http.server 8000"'
                 echo 'Frontend is now live at http://localhost:8000'
             }
         }
